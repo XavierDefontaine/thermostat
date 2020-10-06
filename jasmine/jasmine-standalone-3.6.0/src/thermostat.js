@@ -7,6 +7,24 @@ class Thermostat {
     this.HIGH_USAGE_TEMP = 26
   }
 
+  upByOne() {
+    if (this.powerSaving === true && this.temperature >= 25) {
+      this.temperature = 25
+    } else if (this.powerSaving === false && this.temperature >= 32) {
+      this.temperature = 32
+    } else {
+      this.temperature += 1
+    }
+  }
+
+  downByOne() {
+    if (this.temperature <= 10) {
+      this.temperature = 10
+    } else {
+      this.temperature -= 1
+    }
+  }
+
   up(degrees) {
     if (this.powerSaving === true && this.temperature + degrees > 25) {
       this.temperature = 25
