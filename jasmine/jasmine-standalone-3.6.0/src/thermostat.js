@@ -1,8 +1,10 @@
 class Thermostat {
 
   constructor() {
-    this.temperature = 20;
+    this.temperature = 20
     this.powerSaving = true
+    this.LOW_USAGE_TEMP = 17
+    this.HIGH_USAGE_TEMP = 26
   }
 
   up(degrees) {
@@ -30,6 +32,17 @@ class Thermostat {
   reset() {
     this.temperature = 20
   }
+
+  usage() {
+    if (this.temperature <= this.LOW_USAGE_TEMP) {
+      return 'low-usage' 
+    } else if (this.temperature >= this.HIGH_USAGE_TEMP) {
+      return 'high-usage'
+    } else {
+      return 'medium-usage'
+    }
+  }
+
 
 }
 
