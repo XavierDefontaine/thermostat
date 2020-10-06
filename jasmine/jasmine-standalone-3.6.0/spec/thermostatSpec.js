@@ -30,9 +30,11 @@ describe("Thermostat", function() {
       thermostat.down(3);
       expect(thermostat.usage()).toEqual('low-usage')
     });
+    
     it('returns medium-usage if temp is <= 25', function() {
       expect(thermostat.usage()).toEqual('medium-usage')
     });
+
     it('returns high-usage if temp is > 25', function() {
       thermostat.switchPowerSaving();
       thermostat.up(6);
