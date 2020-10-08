@@ -3,7 +3,7 @@ $(document).ready(function () {
   updateUsage();
   updateTemperature();
   checkOutsideTemp('London');
-  getTest();
+
 
   $("#temperature-up").click(function () {
     thermostat.up();
@@ -35,12 +35,6 @@ $(document).ready(function () {
     checkOutsideTemp(city) 
   })
 
-
-  function getTest() {
-  $.get('/test', function(data) {
-  $('#sinatraTest').text(data.string)})
-  }
-
   function checkOutsideTemp(city) {
       var url = "http://api.openweathermap.org/data/2.5/weather?q="
       var token = "&appid=a3d9eb01d4de82b9b8d0849ef604dbed"
@@ -57,7 +51,9 @@ $(document).ready(function () {
   }
 
   function updateTemperature() {
-    $("#temperature").text(thermostat.temperature);
+    $.get('/temperature', function(data) {
+      $('#temperature').text(JSON.parse(data).temperature)})
+    
     if (thermostat.energyUsage() === "low-usage") {
       $("#temperature").css("color", "green");
     } else if (thermostat.energyUsage() === "medium-usage") {
@@ -65,5 +61,6 @@ $(document).ready(function () {
     } else {
       $("#temperature").css("color", "red");
     }
+    // $('#temperature').attr('class', thermostat.energyUsage(data.temperature));
   }
 });

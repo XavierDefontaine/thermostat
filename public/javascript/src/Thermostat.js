@@ -39,6 +39,8 @@ class Thermostat {
     this.temperature = 20;
   }
 
+  
+
   energyUsage() {
     switch (true) {
       case this.temperature < 18:
