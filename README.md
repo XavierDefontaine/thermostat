@@ -14,3 +14,13 @@ notes
 5. Set maximum temperature to 25 degrees with POWERSAVING mode on.
 
 6. Maximum temperature is 32 when POWERSAVING mode is off.
+
+
+Steps to setup Sinatra
+
+- roots (index, temperature(GET/POST) )
+- model (Thermostat class with temperature and update method)
+- Javascript (update Thermostat.js to add:
+> a getLatestTemp method sending a get to Sinatra
+> then a post with an updateTemp method 
+- update interface.js
