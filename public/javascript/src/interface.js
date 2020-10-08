@@ -34,7 +34,9 @@ $(document).ready(function () {
     checkOutsideTemp(city) 
   })
 
-  $('#sinatraTest').text($.get("/test"))
+  $('#sinatraTest').text(function () {
+    $.get('/test')
+  })
 
 
   function checkOutsideTemp(city) {

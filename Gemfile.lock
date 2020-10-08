@@ -1,5 +1,6 @@
 GEM
   specs:
+    json (2.3.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     rack (2.2.3)
@@ -17,6 +18,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  json
   sinatra
 
 BUNDLED WITH
