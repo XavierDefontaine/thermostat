@@ -3,6 +3,7 @@ $(document).ready(function () {
   updateUsage();
   updateTemperature();
   checkOutsideTemp('London');
+  getTest();
 
   $("#temperature-up").click(function () {
     thermostat.up();
@@ -34,10 +35,11 @@ $(document).ready(function () {
     checkOutsideTemp(city) 
   })
 
-  $('#sinatraTest').text(function () {
-    $.get('/test')
-  })
 
+  function getTest() {
+  $.get('/test', function(data) {
+  $('#sinatraTest').text(data.string)})
+  }
 
   function checkOutsideTemp(city) {
       var url = "http://api.openweathermap.org/data/2.5/weather?q="
