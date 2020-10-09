@@ -7,6 +7,21 @@ class Thermostat {
     this.powerSaving = true;
   }
 
+  getCurrentTemp(){
+    $.get('/temperature', function(res) {
+      var data = JSON.parse(res)
+      callback(data)
+      // $('#temperature').text(JSON.parse(data).temperature)
+    })
+
+  }
+
+  updateTemperature(value, callback){
+    $.post('/temperature', {temperature: value}, function(callback) {
+      $("#temperature").text("Hello");
+      })
+  }
+
   up() {
     if (
       this.temperature < this.maximumPowerSavingOn &&

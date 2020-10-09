@@ -8,9 +8,7 @@ $(document).ready(function () {
   $("#temperature-up").click(function () {
     thermostat.up();
 
-    $.post('/temperature', {temperature: "22"}, function(callback) {
-      $("#temperature").text("Hello");
-      })
+    
 
     updateTemperature();
     updateUsage();
@@ -56,10 +54,7 @@ $(document).ready(function () {
   }
 
   function updateTemperature() {
-    $.get('/temperature', function(data) {
-      $('#temperature').text(JSON.parse(data).temperature)
-    })
-    
+   thermostat.getCurrentTemp();
     if (thermostat.energyUsage() === "low-usage") {
       $("#temperature").css("color", "green");
     } else if (thermostat.energyUsage() === "medium-usage") {
