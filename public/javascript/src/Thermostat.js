@@ -7,20 +7,17 @@ class Thermostat {
     this.powerSaving = true;
   }
 
-  getCurrentTemp(){
+  getCurrentTemp(callback) {
     $.get('/temperature', function(res) {
       var data = JSON.parse(res)
-      callback(data)
-      // $('#temperature').text(JSON.parse(data).temperature)
+      callback(data);
     })
-
   }
 
-  updateTemperature(value, callback){
-    $.post('/temperature', {temperature: value}, function(callback) {
-      $("#temperature").text("Hello");
-      })
+  updateTemp(value, callback) {
+    $.post('/temperature', { temperature: value }, callback)
   }
+ 
 
   up() {
     if (

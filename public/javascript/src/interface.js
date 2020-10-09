@@ -54,7 +54,13 @@ $(document).ready(function () {
   }
 
   function updateTemperature() {
-   thermostat.getCurrentTemp();
+   thermostat.getCurrentTemp(function (data) { 
+    $("#temperature").text(data.temperature);
+   })
+   thermostat.updateTemp(function(value, callback){
+    
+   })
+    
     if (thermostat.energyUsage() === "low-usage") {
       $("#temperature").css("color", "green");
     } else if (thermostat.energyUsage() === "medium-usage") {
