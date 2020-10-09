@@ -13,6 +13,10 @@ class ThermoServer < Sinatra::Base
     { temperature: thermostat.temperature }.to_json
   end
 
+  post '/temperature' do
+  
+  end
+
 run! if app_file == $0
 
 end

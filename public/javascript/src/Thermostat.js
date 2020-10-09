@@ -20,6 +20,7 @@ class Thermostat {
       this.temperature++;
     }
   }
+    
 
   down() {
     if (this.temperature > this.minimum) {
@@ -40,7 +41,6 @@ class Thermostat {
   }
 
   
-
   energyUsage() {
     switch (true) {
       case this.temperature < 18:
